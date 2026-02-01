@@ -494,6 +494,17 @@ class PlaygroundApp {
     selectEffect(effectId) {
         state.set('currentEffect', effectId);
         window.location.hash = `${state.get('currentCategory')}/${effectId}`;
+
+        // Highlight active card
+        const cards = document.querySelectorAll('.effect-card');
+        cards.forEach(card => {
+            if (card.dataset.effect === effectId) {
+                card.classList.add('active');
+            } else {
+                card.classList.remove('active');
+            }
+        });
+
         this.showEffect(effectId);
     }
 
