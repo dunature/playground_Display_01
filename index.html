@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前端页面效果 Playground</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%A8%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/effects.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Prism.js 代码高亮 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="top-navbar">
+        <div class="nav-left">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">
+                <i class="fas fa-magic"></i>
+                <span>Playground</span>
+                <span class="magazine-badge">MAGAZINE</span>
+            </div>
+        </div>
+        <div class="nav-center">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="搜索效果..." id="searchInput">
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="fullscreen-btn" id="fullscreenBtn">
+                <i class="fas fa-expand"></i>
+            </button>
+            <div class="fps-counter" id="fpsCounter">60 FPS</div>
+        </div>
+    </header>
+
+    <!-- 主体布局 -->
+    <div class="main-layout">
+        <!-- 左侧边栏 -->
+        <aside class="sidebar" id="sidebar">
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-palette"></i>
+                        CSS动效
+                    </h3>
+                    <ul class="nav-list">
+                        <li><a href="#" data-category="css-basic" class="active"><i class="fas fa-play-circle"></i>基础动画</a></li>
+                        <li><a href="#" data-category="css-advanced"><i class="fas fa-star"></i>高级动画</a></li>
+                        <li><a href="#" data-category="css-3d"><i class="fas fa-cube"></i>3D效果</a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-mouse-pointer"></i>
+                        交互组件
+                    </h3>
+                    <ul class="nav-list">
+                        <li><a href="#" data-category="ui-basic"><i class="fas fa-window-restore"></i>基础组件</a></li>
+                        <li><a href="#" data-category="ui-nav"><i class="fas fa-compass"></i>导航组件</a></li>
+                        <li><a href="#" data-category="ui-form"><i class="fas fa-edit"></i>表单组件</a></li>
+                        <li><a href="#" data-category="ui-content"><i class="fas fa-list"></i>内容展示</a></li>
+                        <li><a href="#" data-category="ui-advanced"><i class="fas fa-cogs"></i>高级交互</a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-chart-bar"></i>
+                        数据可视化
+                    </h3>
+                    <ul class="nav-list">
+                        <li><a href="#" data-category="chart-basic"><i class="fas fa-chart-line"></i>基础图表</a></li>
+                        <li><a href="#" data-category="chart-advanced"><i class="fas fa-chart-pie"></i>高级图表</a></li>
+                        <li><a href="#" data-category="chart-display"><i class="fas fa-table"></i>数据展示</a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-sparkles"></i>
+                        视觉效果
+                    </h3>
+                    <ul class="nav-list">
+                        <li><a href="#" data-category="visual-modern"><i class="fas fa-gem"></i>现代设计</a></li>
+                        <li><a href="#" data-category="visual-bg"><i class="fas fa-image"></i>背景效果</a></li>
+                        <li><a href="#" data-category="visual-text"><i class="fas fa-font"></i>文字效果</a></li>
+                        <li><a href="#" data-category="visual-border"><i class="fas fa-border-style"></i>边框阴影</a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-gamepad"></i>
+                        交互游戏
+                    </h3>
+                    <ul class="nav-list">
+                        <li><a href="#" data-category="game-mouse"><i class="fas fa-mouse"></i>鼠标交互</a></li>
+                        <li><a href="#" data-category="game-scroll"><i class="fas fa-scroll"></i>滚动效果</a></li>
+                        <li><a href="#" data-category="game-demo"><i class="fas fa-puzzle-piece"></i>小游戏</a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-code"></i>
+                        现代特性
+                    </h3>
+                    <ul class="nav-list">
+                        <li><a href="#" data-category="feature-css"><i class="fab fa-css3-alt"></i>CSS特性</a></li>
+                        <li><a href="#" data-category="feature-js"><i class="fab fa-js"></i>JS API</a></li>
+                        <li><a href="#" data-category="feature-responsive"><i class="fas fa-mobile-alt"></i>响应式设计</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="content-area">
+            <div class="content-header">
+                <h1 id="pageTitle">基础动画</h1>
+                <p id="pageDesc">常用的CSS基础动画效果展示</p>
+            </div>
+
+            <div class="preview-layout" id="previewLayout">
+                <!-- 效果展示区 -->
+                <div class="preview-area">
+                    <div class="preview-toolbar">
+                        <span class="preview-label">效果预览</span>
+                        <div class="preview-actions">
+                            <button class="action-btn" id="replayBtn" title="重新播放">
+                                <i class="fas fa-redo"></i>
+                            </button>
+                            <button class="action-btn" id="layoutToggle" title="切换布局">
+                                <i class="fas fa-columns"></i>
+                            </button>
+                            <button class="action-btn" id="codeToggle" title="显示/隐藏代码">
+                                <i class="fas fa-code"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="preview-stage" id="previewStage">
+                        <!-- 动态内容将在这里渲染 -->
+                    </div>
+                </div>
+
+                <!-- 代码预览区 -->
+                <div class="code-area" id="codeArea">
+                    <div class="code-tabs">
+                        <button class="code-tab active" data-tab="html">HTML</button>
+                        <button class="code-tab" data-tab="css">CSS</button>
+                        <button class="code-tab" data-tab="js">JS</button>
+                    </div>
+                    <div class="code-content">
+                        <pre><code id="codeDisplay" class="language-html"></code></pre>
+                        <button class="copy-code-btn" id="copyCodeBtn">
+                            <i class="fas fa-copy"></i>
+                            复制代码
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 效果选择网格 -->
+            <div class="effects-grid" id="effectsGrid">
+                <!-- 动态生成效果卡片 -->
+            </div>
+        </main>
+
+        <!-- 右侧属性面板 -->
+        <aside class="properties-panel" id="propertiesPanel">
+            <div class="panel-header">
+                <h3><i class="fas fa-sliders-h"></i>参数调节</h3>
+                <button class="panel-toggle" id="panelToggle" title="收起面板">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="panel-content" id="panelContent">
+                <!-- 动态生成参数控制 -->
+            </div>
+        </aside>
+    </div>
+
+    <!-- 全屏模态框 -->
+    <div class="fullscreen-modal" id="fullscreenModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- 通知容器 -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

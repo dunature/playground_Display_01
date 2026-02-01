@@ -1,0 +1,447 @@
+/* ==================== 主题变量定义 ==================== */
+
+/* 默认主题 (杂志风格) */
+:root {
+    --primary: #1e4a8d;
+    --primary-light: #3a6ab3;
+    --primary-dark: #123466;
+    --secondary: #fa7ec5;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --info: #3b82f6;
+    --accent: #dede29;
+
+    --bg-primary: #f2f2f7;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #e5e5ea;
+    --bg-elevated: #ffffff;
+    --text-primary: #1c1c1e;
+    --text-secondary: #3a3a3c;
+    --text-muted: #8e8e93;
+    --border-color: #d1d1d6;
+    --border-light: #e5e5ea;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* 杂志亮色主题 (同默认) */
+[data-theme="light"] {
+    --bg-primary: #f2f2f7;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #e5e5ea;
+    --bg-elevated: #ffffff;
+    --text-primary: #1c1c1e;
+    --text-secondary: #3a3a3c;
+    --text-muted: #8e8e93;
+    --border-color: #d1d1d6;
+    --border-light: #e5e5ea;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* 紫色主题 */
+[data-theme="purple"] {
+    --primary: #a855f7;
+    --primary-light: #c084fc;
+    --primary-dark: #9333ea;
+    --secondary: #f472b6;
+
+    --bg-primary: #1a0b2e;
+    --bg-secondary: #2d1b4e;
+    --bg-tertiary: #432c7a;
+    --bg-elevated: #2d1b4e;
+    --text-primary: #faf5ff;
+    --text-secondary: #d8b4fe;
+    --text-muted: #a855f7;
+    --border-color: #432c7a;
+    --border-light: #581c87;
+
+    --shadow-glow: 0 0 20px rgba(168, 85, 247, 0.3);
+}
+
+/* 绿色主题 */
+[data-theme="green"] {
+    --primary: #10b981;
+    --primary-light: #34d399;
+    --primary-dark: #059669;
+    --secondary: #84cc16;
+
+    --bg-primary: #022c22;
+    --bg-secondary: #064e3b;
+    --bg-tertiary: #065f46;
+    --bg-elevated: #064e3b;
+    --text-primary: #ecfdf5;
+    --text-secondary: #6ee7b7;
+    --text-muted: #34d399;
+    --border-color: #065f46;
+    --border-light: #047857;
+
+    --shadow-glow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+/* 橙色主题 */
+[data-theme="orange"] {
+    --primary: #f97316;
+    --primary-light: #fb923c;
+    --primary-dark: #ea580c;
+    --secondary: #fbbf24;
+
+    --bg-primary: #431407;
+    --bg-secondary: #7c2d12;
+    --bg-tertiary: #9a3412;
+    --bg-elevated: #7c2d12;
+    --text-primary: #fff7ed;
+    --text-secondary: #fdba74;
+    --text-muted: #fb923c;
+    --border-color: #9a3412;
+    --border-light: #c2410c;
+
+    --shadow-glow: 0 0 20px rgba(249, 115, 22, 0.3);
+}
+
+/* 粉色主题 */
+[data-theme="pink"] {
+    --primary: #ec4899;
+    --primary-light: #f472b6;
+    --primary-dark: #db2777;
+    --secondary: #f43f5e;
+
+    --bg-primary: #4a044e;
+    --bg-secondary: #831843;
+    --bg-tertiary: #9d174d;
+    --bg-elevated: #831843;
+    --text-primary: #fdf2f8;
+    --text-secondary: #fbcfe8;
+    --text-muted: #f9a8d4;
+    --border-color: #9d174d;
+    --border-light: #be185d;
+
+    --shadow-glow: 0 0 20px rgba(236, 72, 153, 0.3);
+}
+
+/* 蓝色主题 */
+[data-theme="blue"] {
+    --primary: #3b82f6;
+    --primary-light: #60a5fa;
+    --primary-dark: #2563eb;
+    --secondary: #06b6d4;
+
+    --bg-primary: #0c1e3e;
+    --bg-secondary: #1e3a5f;
+    --bg-tertiary: #1e40af;
+    --bg-elevated: #1e3a5f;
+    --text-primary: #eff6ff;
+    --text-secondary: #93c5fd;
+    --text-muted: #60a5fa;
+    --border-color: #1e40af;
+    --border-light: #2563eb;
+
+    --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* 红色主题 */
+[data-theme="red"] {
+    --primary: #ef4444;
+    --primary-light: #f87171;
+    --primary-dark: #dc2626;
+    --secondary: #f97316;
+
+    --bg-primary: #450a0a;
+    --bg-secondary: #7f1d1d;
+    --bg-tertiary: #991b1b;
+    --bg-elevated: #7f1d1d;
+    --text-primary: #fef2f2;
+    --text-secondary: #fca5a5;
+    --text-muted: #f87171;
+    --border-color: #991b1b;
+    --border-light: #b91c1c;
+
+    --shadow-glow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+/* 青色主题 */
+[data-theme="cyan"] {
+    --primary: #06b6d4;
+    --primary-light: #22d3ee;
+    --primary-dark: #0891b2;
+    --secondary: #14b8a6;
+
+    --bg-primary: #083344;
+    --bg-secondary: #164e63;
+    --bg-tertiary: #155e75;
+    --bg-elevated: #164e63;
+    --text-primary: #ecfeff;
+    --text-secondary: #67e8f9;
+    --text-muted: #22d3ee;
+    --border-color: #155e75;
+    --border-light: #0891b2;
+
+    --shadow-glow: 0 0 20px rgba(6, 182, 212, 0.3);
+}
+
+/* 高对比度主题 */
+[data-theme="contrast"] {
+    --primary: #ffff00;
+    --primary-light: #ffff00;
+    --primary-dark: #ffff00;
+    --secondary: #00ffff;
+    --success: #00ff00;
+    --warning: #ffff00;
+    --error: #ff0000;
+    --info: #00ffff;
+
+    --bg-primary: #000000;
+    --bg-secondary: #111111;
+    --bg-tertiary: #222222;
+    --bg-elevated: #111111;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-muted: #888888;
+    --border-color: #ffffff;
+    --border-light: #cccccc;
+
+    --shadow-glow: 0 0 10px #ffff00;
+}
+
+/* 主题切换动画 */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+*,
+*::before,
+*::after {
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 主题预览卡片 */
+.theme-preview-card {
+    padding: 20px;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-preview-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.theme-preview-card.active {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.theme-preview-card::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s;
+}
+
+.theme-preview-card.active::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.theme-preview-card.active::after {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.7rem;
+}
+
+.theme-preview-colors {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.theme-preview-color {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--radius-sm);
+}
+
+.theme-preview-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+/* 色彩对比度检测 */
+.contrast-checker {
+    padding: 20px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.contrast-preview {
+    padding: 30px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.contrast-score {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.contrast-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contrast-pass {
+    color: var(--success);
+}
+
+.contrast-fail {
+    color: var(--error);
+}
+
+/* 渐变色生成器 */
+.gradient-generator {
+    display: grid;
+    gap: 20px;
+}
+
+.gradient-preview {
+    height: 150px;
+    border-radius: var(--radius-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-stops {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.gradient-stop {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+}
+
+.gradient-stop-color {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+}
+
+.gradient-stop-position {
+    width: 60px;
+    padding: 5px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.gradient-code {
+    padding: 15px;
+    background: var(--bg-primary);
+    border-radius: var(--radius-sm);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* 动态主题生成 */
+.dynamic-theme-controls {
+    display: grid;
+    gap: 20px;
+}
+
+.dynamic-theme-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 20px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+}
+
+.dynamic-theme-sample {
+    padding: 15px;
+    border-radius: var(--radius-sm);
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* 深色模式切换过渡 */
+.theme-transition-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-primary);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.theme-transition-overlay.active {
+    opacity: 1;
+}
+
+/* 暗色模式优化 */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        color-scheme: dark;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme]) {
+        color-scheme: light;
+    }
+}
+
+/* 减少动画 */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

@@ -1,0 +1,1141 @@
+/* ==================== 演示盒子 ==================== */
+.demo-box {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+/* 预览占位符 */
+.preview-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* 空状态 */
+.empty-state {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+/* ==================== 基础动画 ==================== */
+
+/* 淡入淡出 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.anim-fadeIn {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.anim-fadeOut {
+    animation: fadeOut 0.5s ease forwards;
+}
+
+/* 滑入动画 */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.anim-slideInLeft { animation: slideInLeft 0.6s ease forwards; }
+.anim-slideInRight { animation: slideInRight 0.6s ease forwards; }
+.anim-slideInUp { animation: slideInUp 0.6s ease forwards; }
+.anim-slideInDown { animation: slideInDown 0.6s ease forwards; }
+
+/* 弹跳动画 */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+.anim-bounce {
+    animation: bounce 1s ease infinite;
+}
+
+/* 脉冲动画 */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.anim-pulse {
+    animation: pulse 1.5s ease infinite;
+}
+
+/* 摇晃动画 */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+    20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+.anim-shake {
+    animation: shake 0.8s ease;
+}
+
+/* 旋转动画 */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.anim-rotate {
+    animation: rotate 2s linear infinite;
+}
+
+/* 缩放动画 */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.anim-zoomIn { animation: zoomIn 0.5s ease forwards; }
+.anim-zoomOut { animation: zoomOut 0.5s ease forwards; }
+
+/* 翻转动画 */
+@keyframes flip {
+    0% { transform: perspective(400px) rotateY(0); }
+    100% { transform: perspective(400px) rotateY(360deg); }
+}
+
+.anim-flip {
+    animation: flip 1s ease-in-out;
+}
+
+/* 摇摆动画 */
+@keyframes swing {
+    20% { transform: rotate(15deg); }
+    40% { transform: rotate(-10deg); }
+    60% { transform: rotate(5deg); }
+    80% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.anim-swing {
+    animation: swing 1s ease;
+}
+
+/* 橡皮筋动画 */
+@keyframes rubberBand {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.25, 0.75); }
+    40% { transform: scale(0.75, 1.25); }
+    50% { transform: scale(1.15, 0.85); }
+    65% { transform: scale(0.95, 1.05); }
+    75% { transform: scale(1.05, 0.95); }
+    100% { transform: scale(1); }
+}
+
+.anim-rubberBand {
+    animation: rubberBand 1s ease;
+}
+
+/* 闪烁动画 */
+@keyframes flash {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+.anim-flash {
+    animation: flash 2s ease infinite;
+}
+
+/* 心跳动画 */
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.3); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.3); }
+    70% { transform: scale(1); }
+}
+
+.anim-heartBeat {
+    animation: heartBeat 1.3s ease infinite;
+}
+
+/* ==================== 高级动画 ==================== */
+
+/* 打字机效果 */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+.typewriter {
+    overflow: hidden;
+    border-right: 3px solid var(--primary);
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+}
+
+/* 文字渐变流动 */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.gradient-text-flow {
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff6b6b);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientFlow 3s ease infinite;
+}
+
+/* 波浪动画 */
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.wave-animation span {
+    display: inline-block;
+    animation: wave 1s ease-in-out infinite;
+}
+
+.wave-animation span:nth-child(2) { animation-delay: 0.1s; }
+.wave-animation span:nth-child(3) { animation-delay: 0.2s; }
+.wave-animation span:nth-child(4) { animation-delay: 0.3s; }
+.wave-animation span:nth-child(5) { animation-delay: 0.4s; }
+
+/* 加载动画集合 */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes bounce-dots {
+    0%, 80%, 100% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes wave-loading {
+    0%, 100% { height: 10px; }
+    50% { height: 30px; }
+}
+
+/* 加载动画1 - 旋转圆圈 */
+.loader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--bg-tertiary);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* 加载动画2 - 脉冲 */
+.loader-pulse {
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: pulse 1.5s ease infinite;
+}
+
+/* 加载动画3 - 双环 */
+.loader-dual-ring {
+    width: 50px;
+    height: 50px;
+}
+
+.loader-dual-ring::after {
+    content: '';
+    display: block;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 4px solid var(--primary);
+    border-color: var(--primary) transparent var(--primary) transparent;
+    animation: spin 1.2s linear infinite;
+}
+
+/* 加载动画4 - 点状 */
+.loader-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.loader-dots span {
+    width: 12px;
+    height: 12px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: bounce-dots 1.4s ease-in-out infinite both;
+}
+
+.loader-dots span:nth-child(1) { animation-delay: -0.32s; }
+.loader-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+/* 加载动画5 - 波浪 */
+.loader-wave {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 40px;
+}
+
+.loader-wave span {
+    width: 6px;
+    background: var(--primary);
+    border-radius: 3px;
+    animation: wave-loading 1s ease-in-out infinite;
+}
+
+.loader-wave span:nth-child(2) { animation-delay: 0.1s; }
+.loader-wave span:nth-child(3) { animation-delay: 0.2s; }
+.loader-wave span:nth-child(4) { animation-delay: 0.3s; }
+.loader-wave span:nth-child(5) { animation-delay: 0.4s; }
+
+/* 加载动画6 - 方块 */
+@keyframes square-grid {
+    0%, 70%, 100% { transform: scale3D(1, 1, 1); }
+    35% { transform: scale3D(0, 0, 1); }
+}
+
+.loader-squares {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+}
+
+.loader-squares span {
+    background: var(--primary);
+    animation: square-grid 1.3s ease-in-out infinite;
+}
+
+.loader-squares span:nth-child(1) { animation-delay: 0.2s; }
+.loader-squares span:nth-child(2) { animation-delay: 0.3s; }
+.loader-squares span:nth-child(3) { animation-delay: 0.4s; }
+.loader-squares span:nth-child(4) { animation-delay: 0.1s; }
+.loader-squares span:nth-child(5) { animation-delay: 0.2s; }
+.loader-squares span:nth-child(6) { animation-delay: 0.3s; }
+.loader-squares span:nth-child(7) { animation-delay: 0s; }
+.loader-squares span:nth-child(8) { animation-delay: 0.1s; }
+.loader-squares span:nth-child(9) { animation-delay: 0.2s; }
+
+/* 骨架屏 */
+@keyframes skeleton-loading {
+    0% { background-position: -200px 0; }
+    100% { background-position: calc(200px + 100%) 0; }
+}
+
+.skeleton {
+    background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--border-light) 50%, var(--bg-tertiary) 75%);
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+    border-radius: 4px;
+}
+
+/* ==================== 3D效果 ==================== */
+
+/* 3D翻转卡片 */
+.flip-card {
+    perspective: 1000px;
+    width: 200px;
+    height: 280px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.flip-card-front {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+}
+
+.flip-card-back {
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* 立体按钮 */
+.btn-3d {
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background: var(--primary);
+    border-radius: var(--radius-md);
+    transform-style: preserve-3d;
+    transition: all 0.2s;
+    box-shadow: 0 4px 0 var(--primary-dark), 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-3d:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 var(--primary-dark), 0 0 0 rgba(0, 0, 0, 0.3);
+}
+
+/* 3D旋转木马 */
+@keyframes rotateCarousel {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+.carousel-3d {
+    perspective: 1000px;
+    width: 300px;
+    height: 200px;
+}
+
+.carousel-3d-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCarousel 10s linear infinite;
+}
+
+.carousel-3d-item {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    background: var(--primary);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+.carousel-3d-item:nth-child(1) { transform: rotateY(0deg) translateZ(150px); background: #ff6b6b; }
+.carousel-3d-item:nth-child(2) { transform: rotateY(90deg) translateZ(150px); background: #4ecdc4; }
+.carousel-3d-item:nth-child(3) { transform: rotateY(180deg) translateZ(150px); background: #45b7d1; }
+.carousel-3d-item:nth-child(4) { transform: rotateY(270deg) translateZ(150px); background: #96ceb4; }
+
+/* 透视卡片悬停 */
+.perspective-card {
+    width: 250px;
+    height: 150px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.perspective-card-container:hover .perspective-card {
+    transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+}
+
+/* 立方体旋转 */
+.cube {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCube 8s linear infinite;
+}
+
+@keyframes rotateCube {
+    from { transform: rotateX(0deg) rotateY(0deg); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+.cube-face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--primary);
+    background: rgba(99, 102, 241, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.cube-face:nth-child(1) { transform: translateZ(50px); }
+.cube-face:nth-child(2) { transform: rotateY(180deg) translateZ(50px); }
+.cube-face:nth-child(3) { transform: rotateY(-90deg) translateZ(50px); }
+.cube-face:nth-child(4) { transform: rotateY(90deg) translateZ(50px); }
+.cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(50px); }
+.cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(50px); }
+
+/* ==================== 入场动画 ==================== */
+@keyframes slideInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInTop {
+    from {
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+}
+
+.animate-on-scroll.animated {
+    animation: slideInBottom 0.8s ease forwards;
+}
+
+/* 延迟动画 */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+/* ==================== 悬停效果 ==================== */
+.hover-lift {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hover-scale {
+    transition: transform 0.3s;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.hover-rotate {
+    transition: transform 0.3s;
+}
+
+.hover-rotate:hover {
+    transform: rotate(5deg);
+}
+
+.hover-glow {
+    transition: box-shadow 0.3s;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 30px var(--primary);
+}
+
+/* ==================== 交错动画 ==================== */
+@keyframes staggerFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stagger-children > * {
+    opacity: 0;
+    animation: staggerFadeIn 0.5s ease forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(7) { animation-delay: 0.35s; }
+.stagger-children > *:nth-child(8) { animation-delay: 0.4s; }
+
+/* ==================== 无限滚动动画 ==================== */
+@keyframes scrollLeft {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+}
+
+.infinite-scroll {
+    display: flex;
+    overflow: hidden;
+}
+
+.infinite-scroll-content {
+    display: flex;
+    animation: scrollLeft 20s linear infinite;
+}
+
+.infinite-scroll:hover .infinite-scroll-content {
+    animation-play-state: paused;
+}
+
+/* ==================== 动画演示元素 ==================== */
+
+/* 演示容器 */
+.anim-demo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+    min-height: 300px;
+}
+
+/* 图片卡片 - 用于 fadeIn/fadeOut */
+.anim-demo-image-card {
+    width: 200px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--bg-tertiary);
+    box-shadow: var(--shadow-lg);
+}
+
+.anim-demo-image-card .card-img {
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+}
+
+.anim-demo-image-card .card-body {
+    padding: 15px;
+}
+
+.anim-demo-image-card .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.anim-demo-image-card .card-text {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* 消息卡片 - 用于 slideIn */
+.anim-demo-message {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--primary);
+    box-shadow: var(--shadow-md);
+    min-width: 280px;
+}
+
+.anim-demo-message .msg-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.anim-demo-message .msg-content {
+    flex: 1;
+}
+
+.anim-demo-message .msg-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.anim-demo-message .msg-desc {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* 弹跳球 - 用于 bounce */
+.anim-demo-ball {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ff6b6b, #ee5a5a);
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4), inset 0 -5px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.anim-demo-ball::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    filter: blur(4px);
+}
+
+/* 通知徽章 - 用于 pulse */
+.anim-demo-badge {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.anim-demo-badge .badge-dot {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 24px;
+    height: 24px;
+    background: #ef4444;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border: 3px solid var(--bg-secondary);
+}
+
+/* 表单输入 - 用于 shake */
+.anim-demo-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 280px;
+}
+
+.anim-demo-input-group label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.anim-demo-input-group .input-field {
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.anim-demo-input-group .input-field:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.anim-demo-input-group .input-field.error {
+    border-color: var(--error);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.anim-demo-input-group .error-msg {
+    font-size: 0.8rem;
+    color: var(--error);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 齿轮/加载图标 - 用于 rotate */
+.anim-demo-gear {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.anim-demo-gear svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--primary);
+}
+
+/* 心形图标 - 用于 heartBeat */
+.anim-demo-heart {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+.anim-demo-heart svg {
+    width: 100%;
+    height: 100%;
+    fill: #ef4444;
+    filter: drop-shadow(0 5px 15px rgba(239, 68, 68, 0.4));
+}
+
+/* 摇摆吊牌 - 用于 swing */
+.anim-demo-pendulum {
+    width: 100px;
+    height: 140px;
+    position: relative;
+    transform-origin: top center;
+}
+
+.anim-demo-pendulum .pendulum-string {
+    width: 2px;
+    height: 60px;
+    background: var(--border-light);
+    margin: 0 auto;
+}
+
+.anim-demo-pendulum .pendulum-bob {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(145deg, var(--primary), var(--secondary));
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* 弹性按钮 - 用于 rubberBand */
+.anim-demo-elastic-btn {
+    padding: 16px 40px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px rgba(34, 197, 94, 0.4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 图片缩放 - 用于 zoomIn/zoomOut */
+.anim-demo-zoom-image {
+    width: 180px;
+    height: 180px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--primary), var(--secondary), var(--warning));
+    background-size: 200% 200%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: var(--shadow-lg);
+}
+
+.anim-demo-zoom-image i {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.anim-demo-zoom-image span {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* 翻转卡片 - 用于 flip */
+.anim-demo-flip-card {
+    width: 160px;
+    height: 200px;
+    perspective: 1000px;
+}
+
+.anim-demo-flip-card .flip-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.anim-demo-flip-card .flip-front,
+.anim-demo-flip-card .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+}
+
+.anim-demo-flip-card .flip-front {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.anim-demo-flip-card .flip-back {
+    background: linear-gradient(135deg, var(--secondary), var(--warning));
+    transform: rotateY(180deg);
+}
+
+/* 闪光灯 - 用于 flash */
+.anim-demo-flash-light {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fbbf24 0%, #f59e0b 50%, transparent 70%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+}
+
+/* 动画控制栏 */
+.anim-demo-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    margin-top: 20px;
+}
+
+.anim-demo-controls button {
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    background: var(--primary);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+}
+
+.anim-demo-controls button:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.anim-demo-controls button.secondary {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.anim-demo-controls button.secondary:hover {
+    background: var(--border-color);
+}
+
+.anim-demo-controls .anim-info {
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* 无限循环开关 */
+.anim-demo-loop-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.anim-demo-loop-toggle input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+}

@@ -1,0 +1,646 @@
+/* ==================== 现代设计风格 ==================== */
+
+/* 玻璃态效果 (Glassmorphism) */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.glass-button {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    transition: all 0.3s;
+}
+
+.glass-button:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* 新拟态设计 (Neumorphism) */
+.neumorphic {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    box-shadow:
+        8px 8px 16px rgba(0, 0, 0, 0.3),
+        -8px -8px 16px rgba(255, 255, 255, 0.05);
+}
+
+.neumorphic-inset {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    box-shadow:
+        inset 4px 4px 8px rgba(0, 0, 0, 0.3),
+        inset -4px -4px 8px rgba(255, 255, 255, 0.05);
+}
+
+.neumorphic-button {
+    padding: 15px 30px;
+    background: var(--bg-primary);
+    border-radius: var(--radius-md);
+    box-shadow:
+        6px 6px 12px rgba(0, 0, 0, 0.3),
+        -6px -6px 12px rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.neumorphic-button:hover {
+    box-shadow:
+        4px 4px 8px rgba(0, 0, 0, 0.3),
+        -4px -4px 8px rgba(255, 255, 255, 0.05);
+}
+
+.neumorphic-button:active {
+    box-shadow:
+        inset 4px 4px 8px rgba(0, 0, 0, 0.3),
+        inset -4px -4px 8px rgba(255, 255, 255, 0.05);
+}
+
+/* 毛玻璃效果增强版 */
+.frosted-glass {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.frosted-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    pointer-events: none;
+}
+
+/* 液态效果 */
+.liquid-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.liquid-effect::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(99, 102, 241, 0.4) 0%,
+        transparent 60%
+    );
+    animation: liquidMove 8s ease-in-out infinite;
+}
+
+@keyframes liquidMove {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(10%, 10%) scale(1.1);
+    }
+    50% {
+        transform: translate(-5%, 15%) scale(0.9);
+    }
+    75% {
+        transform: translate(-10%, -5%) scale(1.05);
+    }
+}
+
+/* 全息效果 */
+.holographic {
+    background: linear-gradient(
+        135deg,
+        rgba(99, 102, 241, 0.3),
+        rgba(236, 72, 153, 0.3),
+        rgba(99, 102, 241, 0.3)
+    );
+    background-size: 200% 200%;
+    position: relative;
+    overflow: hidden;
+}
+
+.holographic::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.03) 2px,
+        rgba(255, 255, 255, 0.03) 4px
+    );
+    pointer-events: none;
+}
+
+.holographic::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 70%
+    );
+    animation: holographicShine 3s ease-in-out infinite;
+}
+
+@keyframes holographicShine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+/* ==================== 背景效果 ==================== */
+
+/* 动态渐变背景 */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.bg-gradient-animated {
+    background: linear-gradient(
+        -45deg,
+        #ee7752,
+        #e73c7e,
+        #23a6d5,
+        #23d5ab
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+.bg-gradient-animated-fast {
+    background: linear-gradient(
+        -45deg,
+        #667eea,
+        #764ba2,
+        #f093fb,
+        #f5576c
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+}
+
+/* 星空背景 */
+.bg-stars {
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-stars::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 50px 90px, #fff, transparent),
+        radial-gradient(2px 2px at 130px 80px, #fff, transparent),
+        radial-gradient(1px 1px at 80px 10px, #fff, transparent),
+        radial-gradient(2px 2px at 160px 120px, #ddd, transparent),
+        radial-gradient(1px 1px at 230px 45px, #fff, transparent),
+        radial-gradient(2px 2px at 300px 150px, rgba(255, 255, 255, 0.9), transparent);
+    background-repeat: repeat;
+    background-size: 350px 200px;
+    animation: starsMove 100s linear infinite;
+}
+
+@keyframes starsMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(-200px); }
+}
+
+/* 波纹背景 */
+.bg-waves {
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-waves::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.3) 100%),
+        repeating-radial-gradient(
+            circle at 50% 50%,
+            transparent 0,
+            transparent 20px,
+            rgba(99, 102, 241, 0.1) 20px,
+            rgba(99, 102, 241, 0.1) 21px
+        );
+    animation: wavesExpand 4s ease-out infinite;
+}
+
+@keyframes wavesExpand {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* 网格背景 */
+.bg-grid {
+    background-image:
+        linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.bg-grid-dots {
+    background-image: radial-gradient(
+        rgba(99, 102, 241, 0.3) 1px,
+        transparent 1px
+    );
+    background-size: 20px 20px;
+}
+
+/* ==================== 文字效果 ==================== */
+
+/* 渐变文字 */
+.text-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-gradient-rainbow {
+    background: linear-gradient(
+        90deg,
+        #ff6b6b,
+        #feca57,
+        #48dbfb,
+        #ff9ff3,
+        #54a0ff
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientFlow 5s ease infinite;
+}
+
+/* 描边文字 */
+.text-stroke {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--primary);
+    text-stroke: 2px var(--primary);
+}
+
+.text-stroke-animated {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--primary);
+    text-stroke: 2px var(--primary);
+    position: relative;
+}
+
+.text-stroke-animated::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-text-stroke: 2px var(--secondary);
+    text-stroke: 2px var(--secondary);
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    animation: strokeReveal 3s ease infinite;
+}
+
+@keyframes strokeReveal {
+    0%, 100% { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+    50% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+/* 3D文字 */
+.text-3d {
+    color: var(--primary);
+    text-shadow:
+        1px 1px 0 var(--primary-dark),
+        2px 2px 0 var(--primary-dark),
+        3px 3px 0 var(--primary-dark),
+        4px 4px 0 var(--primary-dark),
+        5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.text-3d-animated {
+    color: var(--primary);
+    animation: text3d 2s ease infinite;
+}
+
+@keyframes text3d {
+    0%, 100% {
+        text-shadow:
+            1px 1px 0 var(--primary-dark),
+            2px 2px 0 var(--primary-dark),
+            3px 3px 0 var(--primary-dark),
+            4px 4px 0 var(--primary-dark),
+            5px 5px 10px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        text-shadow:
+            -1px -1px 0 var(--primary-dark),
+            -2px -2px 0 var(--primary-dark),
+            -3px -3px 0 var(--primary-dark),
+            -4px -4px 0 var(--primary-dark),
+            -5px -5px 10px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* 霓虹灯文字 */
+.text-neon {
+    color: #fff;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px var(--primary),
+        0 0 40px var(--primary),
+        0 0 80px var(--primary);
+    animation: neonFlicker 2s infinite alternate;
+}
+
+@keyframes neonFlicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+            0 0 5px #fff,
+            0 0 10px #fff,
+            0 0 20px var(--primary),
+            0 0 40px var(--primary),
+            0 0 80px var(--primary);
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+/* 镂空文字 */
+.text-cutout {
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%236366f1" width="100" height="100"/></svg>');
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* 文字遮罩 */
+.text-mask {
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect fill="%236366f1" width="100" height="100"/><rect fill="%23ec4899" x="100" width="100" height="100"/><rect fill="%2322c55e" y="100" width="100" height="100"/><rect fill="%23f59e0b" x="100" y="100" width="100" height="100"/></svg>');
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: textMaskMove 5s ease infinite;
+}
+
+@keyframes textMaskMove {
+    0% { background-position: 0% 0%; }
+    25% { background-position: 100% 0%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* ==================== 边框与阴影效果 ==================== */
+
+/* 动态边框 */
+@keyframes borderRotate {
+    from { --angle: 0deg; }
+    to { --angle: 360deg; }
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.border-animated {
+    position: relative;
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+}
+
+.border-animated::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: calc(var(--radius-lg) + 2px);
+    background: conic-gradient(from var(--angle), var(--primary), var(--secondary), var(--primary));
+    animation: borderRotate 4s linear infinite;
+    z-index: -1;
+}
+
+/* 发光边框 */
+.border-glow {
+    position: relative;
+    border: 2px solid var(--primary);
+    box-shadow:
+        0 0 5px var(--primary),
+        0 0 10px var(--primary),
+        0 0 20px var(--primary),
+        inset 0 0 5px var(--primary);
+    animation: borderGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes borderGlow {
+    from {
+        box-shadow:
+            0 0 5px var(--primary),
+            0 0 10px var(--primary),
+            0 0 20px var(--primary),
+            inset 0 0 5px var(--primary);
+    }
+    to {
+        box-shadow:
+            0 0 10px var(--primary),
+            0 0 20px var(--primary),
+            0 0 40px var(--primary),
+            inset 0 0 10px var(--primary);
+    }
+}
+
+/* 渐变边框 */
+.border-gradient {
+    position: relative;
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+}
+
+.border-gradient::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: calc(var(--radius-lg) + 2px);
+    background: linear-gradient(135deg, var(--primary), var(--secondary), var(--primary));
+    z-index: -1;
+}
+
+/* 阴影效果合集 */
+.shadow-soft {
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-medium {
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.1),
+        0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.shadow-hard {
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.2),
+        0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.shadow-inner {
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.shadow-colored {
+    box-shadow:
+        0 10px 30px -10px rgba(99, 102, 241, 0.5);
+}
+
+.shadow-multicolor {
+    box-shadow:
+        0 10px 30px -10px rgba(99, 102, 241, 0.4),
+        0 20px 40px -20px rgba(236, 72, 153, 0.4);
+}
+
+/* 裁剪路径效果 */
+.clip-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.clip-slant {
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+}
+
+.clip-arrow {
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%);
+}
+
+.clip-circle {
+    clip-path: circle(50% at 50% 50%);
+}
+
+.clip-hexagon {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.clip-wave {
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% calc(100% - 30px),
+        75% 100%,
+        50% calc(100% - 30px),
+        25% 100%,
+        0% calc(100% - 30px)
+    );
+}
+
+/* ==================== 粒子背景容器 ==================== */
+.particles-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* ==================== 鼠标轨迹效果 ==================== */
+.mouse-trail {
+    position: fixed;
+    pointer-events: none;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+    z-index: 9999;
+}
+
+/* ==================== 磁性按钮 ==================== */
+.magnetic-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    background: var(--primary);
+    color: white;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ==================== 进度指示器 ==================== */
+.progress-ring {
+    transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+    transition: stroke-dashoffset 0.5s ease;
+}
+
+/* ==================== 视差容器 ==================== */
+.parallax-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.parallax-layer {
+    will-change: transform;
+}
