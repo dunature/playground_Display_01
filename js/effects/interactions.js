@@ -141,7 +141,7 @@ const InteractionEffects = {
 
             const btn = container.querySelector('.ripple-btn');
 
-            btn.addEventListener('click', function(e) {
+            btn.addEventListener('click', function (e) {
                 const rect = this.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
@@ -153,6 +153,92 @@ const InteractionEffects = {
 
                 this.appendChild(ripple);
                 setTimeout(() => ripple.remove(), 600);
+            });
+        }
+    },
+
+    // 3D Pro 卡片 (3D Pro Card)
+    proCard: {
+        name: '3D Pro 卡片',
+        init: (container) => {
+            container.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: center; height: 300px; background: #f2f2f7; width: 100%; border-radius: 20px;">
+                    <div class="pro-card-container">
+                        <div class="pro-card">
+                            <div class="pro-card-glint"></div>
+                            <h2 style="margin: 0; font-size: 1.5rem; color: var(--primary);">Interactive 3D</h2>
+                            <p style="margin-top: auto; opacity: 0.6;">Mouse over to tilt</p>
+                            <div style="position: absolute; bottom: 20px; right: 20px; font-weight: 900; font-size: 2rem; opacity: 0.1;">01</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const card = container.querySelector('.pro-card');
+            const glint = container.querySelector('.pro-card-glint');
+
+            container.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+                // 光影跟随
+                const glintX = (x / rect.width) * 100;
+                const glintY = (y / rect.height) * 100;
+                glint.style.background = `radial-gradient(circle at ${glintX}% ${glintY}%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 80%)`;
+            });
+
+            container.addEventListener('mouseleave', () => {
+                card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+                glint.style.background = `none`;
+            });
+        }
+    },
+
+    // 磁吸效果 (Cursor Magnet)
+    magnet: {
+        name: '磁力吸附',
+        init: (container) => {
+            container.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: center; height: 300px; background: white; width: 100%; border-radius: 20px; border: 2px solid var(--border-light);">
+                    <div class="magnet-target">MAGNET</div>
+                </div>
+            `;
+
+            const target = container.querySelector('.magnet-target');
+
+            container.addEventListener('mousemove', (e) => {
+                const rect = target.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+
+                const distanceX = e.clientX - centerX;
+                const distanceY = e.clientY - centerY;
+                const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+
+                const magnetRadius = 150;
+
+                if (distance < magnetRadius) {
+                    const pull = (1 - distance / magnetRadius) * 40;
+                    target.style.transform = `translate(${distanceX * 0.2}px, ${distanceY * 0.2}px)`;
+                    target.style.background = `var(--secondary)`;
+                } else {
+                    target.style.transform = `translate(0, 0)`;
+                    target.style.background = `var(--primary)`;
+                }
+            });
+
+            container.addEventListener('mouseleave', () => {
+                target.style.transform = `translate(0, 0)`;
+                target.style.background = `var(--primary)`;
             });
         }
     }

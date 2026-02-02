@@ -53,6 +53,10 @@ const effectRegistry = {
     ...Object.fromEntries(
         Object.entries(VisualEffects.border || {}).map(([key, val]) => [key, { ...val, id: key, category: 'visual-border' }])
     ),
+    // 视觉效果 - 动感排版
+    ...Object.fromEntries(
+        Object.entries(VisualEffects.typography || {}).map(([key, val]) => [key, { ...val, id: key, category: 'visual-typo' }])
+    ),
     // 粒子效果
     ...Object.fromEntries(
         Object.entries(ParticleEffects || {}).map(([key, val]) => [key, { ...val, id: key, category: 'game-mouse' }])
@@ -202,13 +206,20 @@ const categories = {
         description: '动态边框、发光边框、裁剪路径',
         effects: Object.keys(VisualEffects.border || {})
     },
+    'visual-typo': {
+        name: '动感排版',
+        icon: 'fas fa-font',
+        parent: '视觉效果',
+        description: 'Kinetic Typography，让排版具有生命力',
+        effects: Object.keys(VisualEffects.typography || {})
+    },
     // 交互游戏
     'game-mouse': {
         name: '鼠标交互',
         icon: 'fas fa-mouse',
         parent: '交互游戏',
-        description: '鼠标跟随、粒子效果、磁性按钮',
-        effects: [...Object.keys(ParticleEffects || {}), ...Object.keys(InteractionEffects || {})].slice(0, 8)
+        description: '鼠标跟随、粒子效果、磁性按钮、3D卡片',
+        effects: [...Object.keys(ParticleEffects || {}), ...Object.keys(InteractionEffects || {})]
     },
     'game-scroll': {
         name: '滚动效果',

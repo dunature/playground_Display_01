@@ -211,6 +211,183 @@ const VisualEffects = {
     );
     background-size: 20px 20px;
 }`
+        },
+        grainy: {
+            name: '颗粒感背景',
+            desc: '模拟纸张质感的颗粒噪声效果',
+            render: () => `
+                <div class="bg-grainy" style="width: 100%; height: 300px; border-radius: 20px; display: flex; align-items: center; justify-content: center; background: #f2f2f7;">
+                    <div style="background: white; padding: 40px; border: 4px solid black; box-shadow: 10px 10px 0 black; z-index: 1;">
+                        <h3 style="color: black; font-family: 'Merriweather', serif;">GRAINY TEXTURE</h3>
+                    </div>
+                </div>
+            `,
+            html: `<div class="bg-grainy">
+    <div class="content">GRAINY TEXTURE</div>
+</div>`,
+            css: `.bg-grainy {
+    position: relative;
+    background: #f2f2f7;
+    overflow: hidden;
+}
+
+.bg-grainy::before {
+    content: "";
+    position: absolute;
+    inset: -100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.15;
+    pointer-events: none;
+    animation: noiseMove 0.2s steps(2) infinite;
+}
+
+@keyframes noiseMove {
+    0% { transform: translate(0,0) }
+    10% { transform: translate(-5%,-5%) }
+    20% { transform: translate(-10%,5%) }
+    30% { transform: translate(5%,-10%) }
+    40% { transform: translate(-5%,15%) }
+    50% { transform: translate(-10%,5%) }
+    60% { transform: translate(15%,0) }
+    70% { transform: translate(0,10%) }
+    80% { transform: translate(-15%,0) }
+    90% { transform: translate(10%,5%) }
+    100% { transform: translate(5%,0) }
+}`
+        },
+        dither: {
+            name: '抖动效果 (Dither)',
+            desc: '复古低保真色彩抖动',
+            render: () => `
+                <div class="bg-dither" style="width: 100%; height: 300px; border-radius: 20px; display: flex; align-items: center; justify-content: center; background: #fa7ec5;">
+                    <h2 style="color: white; font-size: 3rem; font-weight: 900; -webkit-text-stroke: 1.5px black; text-shadow: 4px 4px 0 black;">DITHER</h2>
+                </div>
+            `,
+            html: `<div class="bg-dither">DITHER</div>`,
+            css: `.bg-dither {
+    background-color: #fa7ec5;
+    background-image: 
+    radial-gradient(circle at 50% 50%, rgba(0,0,0,0.2) 1px, transparent 1px),
+    radial-gradient(circle at 0% 0%, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 4px 4px;
+    image-rendering: pixelated;
+}`
+        },
+        mesh: {
+            name: '网格渐变',
+            desc: '液态多色流动背景',
+            render: () => `
+                <div class="bg-mesh-gradient" style="width: 100%; height: 300px; border-radius: 20px;">
+                    <div class="mesh-ball mesh-ball-1"></div>
+                    <div class="mesh-ball mesh-ball-2"></div>
+                    <div class="mesh-ball mesh-ball-3"></div>
+                    <div style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; height: 100%;">
+                        <h2 style="color: black; font-weight: 900; font-size: 2.5rem; text-transform: uppercase; background: white; padding: 10px 20px; border: 4px solid black; box-shadow: 8px 8px 0 black;">Mesh Fluid</h2>
+                    </div>
+                </div>
+            `,
+            html: `<div class="bg-mesh-gradient">
+    <div class="mesh-ball mesh-ball-1"></div>
+    <div class="mesh-ball mesh-ball-2"></div>
+    <div class="mesh-ball mesh-ball-3"></div>
+</div>`,
+            css: `/* See css/effects.css .bg-mesh-gradient */`
+        },
+        marquee: {
+            name: '水平跑马灯',
+            desc: '无限循环的品牌滚动特技',
+            render: () => `
+                <div style="width: 100%; padding: 40px 0; background: #f2f2f7; border-radius: 20px; overflow: hidden;">
+                    <div class="marquee-container">
+                        <div class="marquee-content">
+                            NEW COLLECTION 2026 • MAGAZINE STYLE • BOLD TYPOGRAPHY • CREATIVE CODING • 
+                        </div>
+                    </div>
+                    <div class="marquee-container" style="background: var(--secondary); margin-top: 20px;">
+                        <div class="marquee-content" style="animation-direction: reverse; color: black;">
+                            DESIGNING THE FUTURE • PIXEL PERFECT • ANIMATED INTERFACES • 
+                        </div>
+                    </div>
+                </div>
+            `,
+            html: `<div class="marquee-container">
+    <div class="marquee-content">YOUR SCROLLING TEXT HERE</div>
+</div>`,
+            css: `/* See css/effects.css .marquee-container */`
+        }
+    },
+
+    // 动感排版 (Kinetic Typography)
+    typography: {
+        reveal: {
+            name: '文字切片揭示',
+            desc: '通过切片动画逐层揭示文字',
+            render: () => `
+                <div class="typo-reveal-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 300px; background: #1e4a8d; width: 100%; border-radius: 20px;">
+                    <div class="reveal-wrapper">
+                        <h2 class="reveal-text" data-text="MAGAZINE">MAGAZINE</h2>
+                        <h2 class="reveal-text secondary" data-text="STYLE">STYLE</h2>
+                    </div>
+                </div>
+            `,
+            html: `<div class="reveal-wrapper">
+    <h1 class="reveal-text" data-text="MAGAZINE">MAGAZINE</h1>
+</div>`,
+            css: `/* See css/effects.css .reveal-text */`
+        },
+        ticker: {
+            name: '垂直跑马灯',
+            desc: '杂志风格侧边栏滚动咨询',
+            render: () => `
+                <div style="display: flex; align-items: center; justify-content: center; height: 300px; background: #f2f2f7; width: 100%; border-radius: 20px;">
+                    <div class="ticker-vertical" style="width: 300px;">
+                        <ul class="ticker-vertical-list">
+                            <li>BREAKING NEWS: NEW DESIGN SYSTEM</li>
+                            <li>MAGAZINE STYLE IS TRENDING</li>
+                            <li>MINIMALISM VS MAXIMALISM</li>
+                            <li>THE FUTURE OF WEB TYPOGRAPHY</li>
+                            <li>STAY CREATIVE, STAY BOLD</li>
+                            <li>BREAKING NEWS: NEW DESIGN SYSTEM</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
+            html: `<div class="ticker-vertical">
+    <ul class="ticker-vertical-list">
+        <li>EDITORIAL UPDATE</li>
+        <li>NEW TRENDS 2026</li>
+        <li>DESIGN REVEALED</li>
+    </ul>
+</div>`,
+            css: `/* See css/effects.css .ticker-vertical */`
+        },
+        kinetic: {
+            name: '动力学文字',
+            desc: '带有深度感和微妙浮动的文字',
+            render: () => `
+                <div style="display: flex; align-items: center; justify-content: center; height: 300px; background: white; width: 100%; border-radius: 20px; border: 2px solid var(--primary);">
+                    <h1 class="kinetic-text" data-text="KINETIC">KINETIC</h1>
+                </div>
+            `,
+            html: `<h1 class="kinetic-text" data-text="HEADING">HEADING</h1>`,
+            css: `/* See css/effects.css .kinetic-text */`
+        },
+        splitHover: {
+            name: '切片悬浮',
+            desc: '鼠标悬浮时产生形变与图层切换',
+            render: () => `
+                <div style="display: flex; align-items: center; justify-content: center; height: 300px; background: #fafafa; width: 100%; border-radius: 20px;">
+                    <div class="split-text-wrapper">
+                        <span class="main-text">EXPLORE</span>
+                        <span class="overlay-text">FUTURE</span>
+                    </div>
+                </div>
+            `,
+            html: `<div class="split-text-wrapper">
+    <span class="main-text">TEXT</span>
+    <span class="overlay-text">OVERLAY</span>
+</div>`,
+            css: `/* See css/effects.css .split-text-wrapper */`
         }
     },
 
